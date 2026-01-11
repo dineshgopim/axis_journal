@@ -6,7 +6,7 @@ interface ImpactBoxProps {
 
 const ImpactBox: React.FC<ImpactBoxProps> = ({ text }) => {
   return (
-    <div className="impact-box my-12 md:my-16 relative group">
+    <div className="impact-box my-5 md:my-6 relative group">
       <div className="bg-white border-y-[6px] border-axis-navy p-10 md:p-14 relative overflow-hidden shadow-sm">
         
         {/* Decorative Quote Mark */}
