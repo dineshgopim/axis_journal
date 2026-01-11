@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Axis Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -20,8 +17,11 @@
               'axis-gray': '#e5e5e5',
             },
             fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              body: ['"Lora"', 'serif'],
+              // Overriding both serif and body aliases to Segoe UI to satisfy the request
+              // while keeping existing class usage intact.
+              serif: ['"Segoe UI"', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+              body: ['"Segoe UI"', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+              sans: ['"Segoe UI"', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
             },
             typography: (theme) => ({
               DEFAULT: {
@@ -41,6 +41,7 @@
         color: #222222;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
       /* Custom scrollbar for a cleaner look */
       ::-webkit-scrollbar {
