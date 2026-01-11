@@ -17,7 +17,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
         This section starts immediately after the navigation menu.
       */}
       <section 
-        className="relative w-full h-[70vh] md:h-[80vh] lg:h-[85vh] min-h-[500px] mb-24 overflow-hidden group cursor-pointer border-b border-axis-charcoal/10"
+        className="relative w-full h-[65vh] md:h-[75vh] lg:h-[80vh] min-h-[450px] mb-24 overflow-hidden group cursor-pointer border-b border-axis-charcoal/10"
         onClick={() => onSelectArticle(featuredArticle)}
       >
         {/* Full-bleed background image */}
@@ -25,49 +25,49 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
           <img 
             src={featuredArticle.coverImage} 
             alt="" 
-            className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-[2000ms] ease-out"
+            className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
           />
           {/* Subtle overlay for contrast */}
-          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="absolute inset-0 bg-black/5"></div>
         </div>
 
         {/* 
           THE PRECISE POSITIONING BOX
-          As per latest feedback: "Exactly under the names" (Navigation).
-          Horizontal: 10% to 60% of the screen width (Left 10%, Width 50%).
-          Vertical: Adjusted from 45% down to 5% to sit right under the header options.
+          Placement: "Exactly under the names" (Navigation categories).
+          Horizontal: 10% to 60% of the screen width.
+          Vertical: Set to top-0 to eliminate any gap between the box and the navigation bar.
         */}
         <div 
           className="
             absolute z-10 
-            /* Desktop Coordinates: Exactly under the nav (top-5%), spanning 10% to 60% width */
-            lg:top-[5%] lg:left-[10%] lg:w-[50%]
+            /* Desktop Coordinates: Flushed to the top (under nav), spanning 10% to 60% width */
+            lg:top-0 lg:left-[10%] lg:w-[50%]
             /* Tablet Coordinates */
-            md:top-[8%] md:left-[8%] md:w-[65%]
+            md:top-0 md:left-[8%] md:w-[60%]
             /* Mobile Coordinates */
-            top-[10%] left-[5%] w-[90%]
+            top-0 left-0 w-full md:w-auto md:left-[5%]
             
-            bg-white/95 backdrop-blur-md md:bg-white 
+            bg-white/98 backdrop-blur-md md:bg-white 
             p-8 md:p-10 lg:p-12
             border-l-[12px] md:border-l-[20px] border-axis-maroon
-            shadow-[30px_30px_60px_rgba(0,0,0,0.2)]
+            shadow-[20px_20px_50px_rgba(0,0,0,0.15)]
             flex flex-col justify-center
-            transition-all duration-700 group-hover:translate-x-1 group-hover:shadow-[40px_40px_80px_rgba(0,0,0,0.25)]
+            transition-all duration-700 group-hover:shadow-[30px_30px_70px_rgba(0,0,0,0.2)]
           "
         >
           <div className="overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-axis-maroon">
-                Featured Dispatch
+                Cover Dispatch
               </span>
               <div className="h-px w-8 bg-axis-maroon/20"></div>
             </div>
             
-            <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl font-black text-axis-charcoal leading-[1.1] tracking-tighter group-hover:text-axis-navy transition-colors mb-6">
+            <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-black text-axis-charcoal leading-[1.1] tracking-tighter group-hover:text-axis-navy transition-colors mb-4">
               {featuredArticle.title}
             </h2>
             
-            <p className="font-body text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed line-clamp-2 md:line-clamp-3 opacity-90 mb-8 border-b border-gray-100 pb-8">
+            <p className="font-body text-sm md:text-base text-gray-600 leading-relaxed line-clamp-2 md:line-clamp-3 opacity-90 mb-6 border-b border-gray-100 pb-6">
               {featuredArticle.subtitle}
             </p>
           </div>
@@ -78,17 +78,17 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
               <span className="ml-3 transform group-hover/btn:translate-x-2 transition-transform">&rarr;</span>
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-axis-maroon/20 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left"></div>
             </button>
-            <div className="hidden md:flex flex-col items-end">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-axis-charcoal opacity-60">By {featuredArticle.author.name}</span>
-              <span className="text-[9px] font-serif italic text-gray-400 mt-0.5">{featuredArticle.date}</span>
+            <div className="hidden md:flex flex-col items-end opacity-50">
+              <span className="text-[9px] font-bold uppercase tracking-widest text-axis-charcoal">Report {featuredArticle.id.slice(0,4).toUpperCase()}</span>
+              <span className="text-[8px] font-serif italic text-gray-400 mt-0.5">{featuredArticle.date}</span>
             </div>
           </div>
         </div>
 
         {/* Branding Watermark */}
-        <div className="absolute bottom-12 right-12 hidden lg:block pointer-events-none select-none">
-          <span className="font-serif text-[14rem] font-black text-white opacity-10 leading-none">
-            A.J.
+        <div className="absolute bottom-8 right-8 hidden lg:block pointer-events-none select-none">
+          <span className="font-serif text-[10rem] font-black text-white opacity-10 leading-none">
+            AJ
           </span>
         </div>
       </section>
@@ -150,7 +150,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
                       </div>
                    </div>
                    <span className="text-[11px] font-bold text-axis-navy group-hover:text-axis-maroon transition-colors underline underline-offset-4 decoration-axis-navy/10 group-hover:decoration-axis-maroon/50">
-                     Open Dispatch
+                     Open Dispatch &rarr;
                    </span>
                 </div>
               </article>
