@@ -113,33 +113,33 @@ export const articles: Article[] = [
       },
       {
         type: 'subheading',
-        content: "Sources and references:"
+        content: "Sources and references"
       },
       {
         type: 'list',
         content: 'References',
         items: [
-            "NIH Study: Adverse Childhood Experiences & Health Outcomes",
-            "UNICEF India: Violence Against Children",
-            "NIH: Global Prevalence of Child Maltreatment",
-            "CDC: About Adverse Childhood Experiences (ACEs)",
-            "NIH: Research on Child Mental Health & Trauma",
-            "Journal of Global Health: Family Violence as a Determinant of Health",
-            "ScienceDirect: Child Abuse & Neglect Research Findings",
-            "PLOS ONE: Suicide Trends and Risk Factors",
-            "CDC: Risk Factors for Sexual Violence",
-            "ScienceDirect: Long-term Consequences of Child Abuse",
-            "WHO: Children’s Mental Health – The Case for Action",
-            "NDTV: India Sees Highest Suicide Rates (National Data)",
-            "PubMed: Adolescent Suicide Trends in India",
-            "NIH: The Effects of Child Maltreatment on Brain Development",
-            "NIH: The Intergenerational Transmission of Trauma",
-            "Office on Women's Health: Effects of Domestic Violence on Children",
-            "NCBI Bookshelf: Child Maltreatment and Family Safety",
-            "NIH: Psychological Consequences of Childhood Neglect",
-            "NY Justice: Myths and Facts About Sexual Abuse",
-            "NIH: Impact of Trauma on Adult Health",
-            "NIH: Neurobiological Effects of Childhood Trauma"
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC8354262/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH Study: Adverse Childhood Experiences & Health Outcomes</a>",
+            "<a href='https://www.unicef.org/india/stories/violence-against-children' target='_blank' rel='noopener noreferrer' class='hover:underline'>UNICEF India: Violence Against Children</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC9260807/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: Global Prevalence of Child Maltreatment</a>",
+            "<a href='https://www.cdc.gov/aces/about/index.html' target='_blank' rel='noopener noreferrer' class='hover:underline'>CDC: About Adverse Childhood Experiences (ACEs)</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC11443910/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: Research on Child Mental Health & Trauma</a>",
+            "<a href='https://www.joghr.org/article/11993-family-violence-as-a-determinant-of' target='_blank' rel='noopener noreferrer' class='hover:underline'>Journal of Global Health: Family Violence as a Determinant of Health</a>",
+            "<a href='https://www.sciencedirect.com/science/article/abs/pii/S0160252720300030' target='_blank' rel='noopener noreferrer' class='hover:underline'>ScienceDirect: Child Abuse & Neglect Research Findings</a>",
+            "<a href='https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0272704' target='_blank' rel='noopener noreferrer' class='hover:underline'>PLOS ONE: Suicide Trends and Risk Factors</a>",
+            "<a href='https://www.cdc.gov/sexual-violence/risk-factors/index.html' target='_blank' rel='noopener noreferrer' class='hover:underline'>CDC: Risk Factors for Sexual Violence</a>",
+            "<a href='https://www.sciencedirect.com/science/article/abs/pii/S0145213419302121' target='_blank' rel='noopener noreferrer' class='hover:underline'>ScienceDirect: Long-term Consequences of Child Abuse</a>",
+            "<a href='https://www.who.int/news-room/commentaries/detail/children-and-young-people-s-mental-health--the-case-for-action' target='_blank' rel='noopener noreferrer' class='hover:underline'>WHO: Children’s Mental Health – The Case for Action</a>",
+            "<a href='https://www.ndtv.com/india-news/india-sees-highest-suicides-in-the-world-12-4-per-1-00-000-national-data-6082407' target='_blank' rel='noopener noreferrer' class='hover:underline'>NDTV: India Sees Highest Suicide Rates (National Data)</a>",
+            "<a href='https://pubmed.ncbi.nlm.nih.gov/38195413/' target='_blank' rel='noopener noreferrer' class='hover:underline'>PubMed: Adolescent Suicide Trends in India</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC4341303/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: The Effects of Child Maltreatment on Brain Development</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC4801766/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: The Intergenerational Transmission of Trauma</a>",
+            "<a href='https://womenshealth.gov/relationships-and-safety/domestic-violence/effects-domestic-violence-children' target='_blank' rel='noopener noreferrer' class='hover:underline'>Office on Women's Health: Effects of Domestic Violence on Children</a>",
+            "<a href='https://www.ncbi.nlm.nih.gov/books/NBK195987/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NCBI Bookshelf: Child Maltreatment and Family Safety</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC4504697/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: Psychological Consequences of Childhood Neglect</a>",
+            "<a href='http://www.criminaljustice.ny.gov/nsor/som_mythsandfacts.htm' target='_blank' rel='noopener noreferrer' class='hover:underline'>NY Justice: Myths and Facts About Sexual Abuse</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC8639107/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: Impact of Trauma on Adult Health</a>",
+            "<a href='https://pmc.ncbi.nlm.nih.gov/articles/PMC7015702/' target='_blank' rel='noopener noreferrer' class='hover:underline'>NIH: Neurobiological Effects of Childhood Trauma</a>"
         ]
       }
     ]

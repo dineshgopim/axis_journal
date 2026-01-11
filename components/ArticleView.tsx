@@ -120,9 +120,10 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
                         {block.items?.map((item, i) => (
                           <li key={i} className="group flex items-start gap-5">
                             <span className="font-serif italic font-bold text-axis-maroon/40 text-sm mt-0.5">{(i+1).toString().padStart(2, '0')}</span>
-                            <span className="group-hover:text-axis-navy transition-colors leading-relaxed">
-                              {item}
-                            </span>
+                            <span 
+                              className="group-hover:text-axis-navy transition-colors leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: item }}
+                            />
                           </li>
                         ))}
                      </ul>
