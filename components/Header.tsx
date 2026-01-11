@@ -61,9 +61,9 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
         <div className="md:hidden w-10"></div> {/* Spacer for mobile balance */}
       </div>
 
-      {/* Desktop Navigation */}
+      {/* Desktop Navigation - Increased font size by 10% (10px to 11px) */}
       <nav className="hidden md:block container mx-auto px-4">
-        <ul className="flex justify-center gap-8 lg:gap-12 text-[10px] font-bold uppercase tracking-[0.15em] text-axis-navy py-4">
+        <ul className="flex justify-center gap-8 lg:gap-12 text-[11px] font-bold uppercase tracking-[0.15em] text-axis-navy py-4">
           {categories.map((item) => (
             <li key={item}>
               <button className="hover:text-axis-maroon transition-colors relative group">
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-axis-cream border-b border-gray-200 shadow-xl animate-in slide-in-from-top duration-300">
           <nav className="p-6">
-            <ul className="grid grid-cols-2 gap-4 text-[10px] font-bold uppercase tracking-widest text-axis-navy">
+            <ul className="grid grid-cols-2 gap-4 text-[11px] font-bold uppercase tracking-widest text-axis-navy">
               {categories.map((item) => (
                 <li key={item}>
                   <button 

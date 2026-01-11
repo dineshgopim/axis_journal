@@ -14,7 +14,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
     <div className="animate-in fade-in duration-1000">
       {/* 
         FEATURED ARTICLE "TYPOGRAPHIC STAGE" 
-        Replaced image-based cover with a high-end editorial typography block.
+        Decreased title and subtitle font sizes by 10%.
       */}
       <section 
         className="relative w-full py-24 md:py-32 mb-16 overflow-hidden group cursor-pointer border-b border-axis-charcoal/10"
@@ -28,11 +28,11 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
             <div className="h-px w-12 bg-axis-maroon/20"></div>
           </div>
           
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-black text-axis-charcoal leading-[1.1] tracking-tight group-hover:text-axis-navy transition-colors mb-8">
+          <h2 className="font-serif text-[1.68rem] md:text-[2.7rem] lg:text-[3.37rem] font-black text-axis-charcoal leading-[1.1] tracking-tight group-hover:text-axis-navy transition-colors mb-8">
             {featuredArticle.title}
           </h2>
           
-          <p className="font-body text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl opacity-90 mb-12 italic">
+          <p className="font-body text-[1rem] md:text-[1.12rem] text-gray-500 leading-relaxed max-w-2xl opacity-90 mb-12 italic">
             {featuredArticle.subtitle}
           </p>
 
