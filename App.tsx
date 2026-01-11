@@ -20,52 +20,36 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-axis-cream flex flex-col font-body selection:bg-axis-maroon selection:text-white">
+    <div className="min-h-screen bg-axis-cream flex flex-col font-body selection:bg-axis-maroon selection:text-white overflow-x-hidden">
       <Header onLogoClick={handleLogoClick} />
 
       <main className="flex-grow">
-        {/* Content Wrapper */}
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 py-10 md:py-20">
-          <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
-            
-            {/* Main Column */}
-            <div className="flex-grow w-full lg:max-w-[900px]">
-              {currentArticle ? (
+        {currentArticle ? (
+          /* ARTICLE VIEW: Centered with Sidebar */
+          <div className="container mx-auto px-4 md:px-8 lg:px-12 py-10 md:py-20">
+            <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
+              <div className="flex-grow w-full lg:max-w-[900px]">
                 <div className="max-w-[800px] mx-auto lg:mx-0">
                   <ArticleView article={currentArticle} />
                 </div>
-              ) : (
-                <ArticleList 
-                  articles={articles} 
-                  onSelectArticle={handleSelectArticle} 
-                />
-              )}
+              </div>
+              
+              <div className="w-full lg:w-[320px] xl:w-[360px] mt-20 lg:mt-0 flex-shrink-0">
+                <div className="lg:sticky lg:top-[160px]">
+                  <Sidebar author={currentArticle.author} />
+                </div>
+              </div>
             </div>
-
-            {/* Sidebar: Sticky on laptop, bottom on mobile */}
-            <div className="w-full lg:w-[320px] xl:w-[360px] mt-20 lg:mt-0 flex-shrink-0">
-               <div className="lg:sticky lg:top-[160px]">
-                  <Sidebar author={currentArticle?.author} />
-                  
-                  {/* Additional desktop footer-like content in sidebar */}
-                  <div className="hidden lg:block mt-16 pt-10 border-t border-gray-200">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-axis-maroon mb-4">
-                      Archive Index
-                    </p>
-                    <div className="space-y-4">
-                      <p className="text-[11px] leading-relaxed text-gray-500 font-serif italic">
-                        Access over a century of investigative journalism, long-form essays, and critical analysis.
-                      </p>
-                      <button className="text-[10px] font-bold uppercase tracking-widest text-axis-navy border-b border-axis-navy/30 pb-1 hover:text-axis-maroon hover:border-axis-maroon transition-all">
-                        Browse Issues &rarr;
-                      </button>
-                    </div>
-                  </div>
-               </div>
-            </div>
-
           </div>
-        </div>
+        ) : (
+          /* HOME PAGE: Full width hero followed by grid */
+          <div className="w-full">
+            <ArticleList 
+              articles={articles} 
+              onSelectArticle={handleSelectArticle} 
+            />
+          </div>
+        )}
       </main>
 
       <footer className="bg-axis-charcoal text-white pt-24 pb-12 border-t-8 border-axis-navy mt-32">
