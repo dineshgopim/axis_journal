@@ -102,11 +102,12 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
               
               case 'list':
                 return (
-                   <div key={index} className="bg-white border-y border-axis-charcoal/10 p-12 md:p-20 my-10">
-                     <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.6em] text-gray-400 mb-10 text-center">Referenced Scholarly Sources</h4>
-                     <ul className="space-y-4 font-body text-base text-gray-600 max-w-3xl mx-auto">
+                   /* Reduced overall block size by ~25%: padding p-12->p-9, md:p-20->md:p-15, margins my-10->my-7 */
+                   <div key={index} className="bg-white border-y border-axis-charcoal/10 p-9 md:p-15 my-7">
+                     <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.6em] text-gray-400 mb-7 text-center">Referenced Scholarly Sources</h4>
+                     <ul className="space-y-3 font-body text-base text-gray-600 max-w-2xl mx-auto">
                         {block.items?.map((item, i) => (
-                          <li key={i} className="group flex items-start gap-6 border-b border-axis-charcoal/5 pb-4 last:border-0">
+                          <li key={i} className="group flex items-start gap-6 border-b border-axis-charcoal/5 pb-3 last:border-0">
                             <span className="font-serif italic font-bold text-axis-maroon/40 text-lg mt-0.5">{(i+1).toString().padStart(2, '0')}</span>
                             <span 
                               className="group-hover:text-axis-navy transition-colors leading-relaxed"
