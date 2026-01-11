@@ -45,7 +45,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
           </span>
         </div>
         
-        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] text-axis-charcoal mb-8 tracking-tight">
+        {/* Main Heading: Decreased by 10% from (3xl, 4xl, 5xl, 7xl) */}
+        <h1 className="font-serif text-[1.68rem] sm:text-[2.02rem] md:text-[2.7rem] lg:text-[4.05rem] font-black leading-[1.1] text-axis-charcoal mb-8 tracking-tight">
           {article.title}
         </h1>
         
@@ -62,7 +63,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         </div>
       </header>
 
-      {/* Main Reading Column - Decreased space-y by 60% (from 12 to 5) */}
+      {/* Main Reading Column */}
       <div className="w-full">
         <div className="font-body text-[1.15rem] md:text-[1.3rem] leading-[1.85] text-gray-800 space-y-5 selection:bg-axis-maroon/10 selection:text-axis-charcoal">
           {article.content.map((block, index) => {
@@ -90,7 +91,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
               
               case 'subheading':
                 return (
-                  <h2 key={index} className="font-serif text-3xl md:text-4xl font-black text-axis-navy pt-8 pb-2 tracking-tight leading-snug text-center italic">
+                  /* Subheading: Now using font-body (Lora) as requested */
+                  <h2 key={index} className="font-body text-2xl md:text-3xl font-black text-axis-navy pt-8 pb-2 tracking-tight leading-snug text-center italic">
                     {block.content}
                   </h2>
                 );

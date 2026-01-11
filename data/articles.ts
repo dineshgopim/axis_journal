@@ -21,7 +21,7 @@ export const articles: Article[] = [
       },
       {
         type: 'paragraph',
-        content: "For a child, the home is expected to be a place of safety, nourishment (proper physical care), emotional warmth, and protection. It is within the family that children develop trust, learn emotional regulation, and form their earliest understanding of self-worth and belonging. Yet for millions of children worldwide, particularly in India, the home has increasingly become a source of <strong>fear, neglect, violence, and psychological harm.</strong>"
+        content: "For a child, the home is expected to be a place of safety, nourishment, emotional warmth, and protection. It is within the family that children develop trust, learn emotional regulation, and form their earliest understanding of self-worth and belonging. Yet for millions of children worldwide, particularly in India, the home has increasingly become a source of <strong>fear, neglect, violence, and psychological harm.</strong>"
       },
       {
         type: 'paragraph',
