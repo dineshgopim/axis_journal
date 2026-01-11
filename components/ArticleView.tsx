@@ -33,9 +33,9 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* Article Header - Centered and Spaced */}
-      <header className="mb-12 text-center">
-        <div className="flex items-center justify-center gap-4 mb-6">
+      {/* Article Header - Reduced bottom margin and internal gaps to push heading up */}
+      <header className="mb-8 text-center">
+        <div className="flex items-center justify-center gap-4 mb-2">
           <span className="text-[9px] font-sans font-bold uppercase tracking-[0.5em] text-axis-maroon bg-axis-maroon/5 px-4 py-2 rounded-sm">
             {article.category}
           </span>
@@ -46,20 +46,20 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         </div>
         
         {/* Main Heading: Decreased by another 10% from the previous turn's values */}
-        <h1 className="font-serif text-[1.51rem] sm:text-[1.82rem] md:text-[2.43rem] lg:text-[3.65rem] font-black leading-[1.1] text-axis-charcoal mb-8 tracking-tight">
+        <h1 className="font-serif text-[1.51rem] sm:text-[1.82rem] md:text-[2.43rem] lg:text-[3.65rem] font-black leading-[1.1] text-axis-charcoal mb-6 tracking-tight">
           {article.title}
         </h1>
         
-        <p className="font-body text-xl md:text-2xl text-gray-500 leading-relaxed italic mb-10 max-w-4xl mx-auto">
+        <p className="font-body text-xl md:text-2xl text-gray-500 leading-relaxed italic mb-8 max-w-4xl mx-auto">
           {article.subtitle}
         </p>
 
-        <div className="flex flex-col items-center justify-center py-8 border-y border-axis-charcoal/5">
-          <div className="flex items-center gap-3 mb-2">
+        <div className="flex flex-col items-center justify-center py-6 border-y border-axis-charcoal/5">
+          <div className="flex items-center gap-3 mb-1">
             <span className="font-sans text-[10px] uppercase font-bold tracking-[0.4em] text-gray-400">Authored by</span>
             <span className="font-serif font-bold text-2xl text-axis-charcoal decoration-axis-maroon/20 decoration-2 underline-offset-8 underline italic">{article.author.name}</span>
           </div>
-          <time className="font-sans text-[10px] uppercase tracking-[0.4em] text-gray-400 mt-4 font-bold">{article.date}</time>
+          <time className="font-sans text-[10px] uppercase tracking-[0.4em] text-gray-400 mt-3 font-bold">{article.date}</time>
         </div>
       </header>
 

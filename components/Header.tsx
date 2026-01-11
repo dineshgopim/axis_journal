@@ -15,22 +15,28 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
 
   const categories = ['World', 'Politics', 'Business', 'Technology', 'Science', 'Health', 'Style', 'Travel'];
 
+  const handleNavClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onLogoClick();
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="border-b border-gray-200 bg-axis-cream sticky top-0 z-50">
-      {/* Top Bar - Decreased padding from py-2 to py-1.5 (~20% reduction) */}
+      {/* Top Bar */}
       <div className="hidden md:block container mx-auto px-4 py-1.5 border-b border-gray-100">
         <div className="flex justify-between items-center text-[9px] font-serif uppercase tracking-[0.2em] text-gray-500">
           <span>{date}</span>
           <div className="space-x-6">
-            <button className="hover:text-axis-maroon transition-colors">Digital Archive</button>
-            <button className="hover:text-axis-maroon transition-colors">Newsletters</button>
+            <button onClick={handleNavClick} className="hover:text-axis-maroon transition-colors">Digital Archive</button>
+            <button onClick={handleNavClick} className="hover:text-axis-maroon transition-colors">Newsletters</button>
             <button className="text-axis-navy font-bold">Sign In</button>
           </div>
         </div>
       </div>
 
-      {/* Main Logo Container - Decreased padding from md:py-8 to md:py-6 and py-4 to py-3 (~20-25% reduction) */}
-      <div className="container mx-auto px-4 py-3 md:py-6 flex items-center justify-between md:justify-center relative">
+      {/* Main Logo Container */}
+      <div className="container mx-auto px-4 py-2 md:py-4 flex items-center justify-between md:justify-center relative">
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 -ml-2 text-axis-charcoal focus:outline-none"
@@ -47,28 +53,25 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
 
         <div className="text-center flex-grow md:flex-grow-0">
           <h1 
-            onClick={() => {
-              onLogoClick();
-              setIsMenuOpen(false);
-            }}
-            className="font-serif text-3xl md:text-6xl font-bold tracking-tighter text-axis-charcoal cursor-pointer hover:opacity-80 transition-opacity select-none"
+            onClick={onLogoClick}
+            className="font-serif text-2xl md:text-5xl font-bold tracking-tighter text-axis-charcoal cursor-pointer hover:opacity-80 transition-opacity select-none leading-none"
           >
             Axis Journal
           </h1>
-          <p className="hidden md:block mt-1 font-serif italic text-gray-500 text-xs tracking-widest uppercase">In Pursuit of Clarity</p>
+          <p className="hidden md:block mt-1 font-serif italic text-gray-500 text-[9px] tracking-[0.2em] uppercase">In Pursuit of Clarity</p>
         </div>
 
-        <div className="md:hidden w-10"></div> {/* Spacer for mobile balance */}
+        <div className="md:hidden w-10"></div>
       </div>
 
-      {/* Desktop Navigation - Decreased vertical padding from py-4 to py-3 (~25% reduction) */}
+      {/* Desktop Navigation */}
       <nav className="hidden md:block container mx-auto px-4">
-        <ul className="flex justify-center gap-8 lg:gap-12 text-[11px] font-bold uppercase tracking-[0.15em] text-axis-navy py-3">
+        <ul className="flex justify-center gap-6 lg:gap-10 text-[10px] font-bold uppercase tracking-[0.15em] text-axis-navy py-2">
           {categories.map((item) => (
             <li key={item}>
-              <button className="hover:text-axis-maroon transition-colors relative group">
+              <button onClick={handleNavClick} className="hover:text-axis-maroon transition-colors relative group py-1">
                 {item}
-                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-axis-maroon transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-axis-maroon transition-all group-hover:w-full"></span>
               </button>
             </li>
           ))}
@@ -79,11 +82,11 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-axis-cream border-b border-gray-200 shadow-xl animate-in slide-in-from-top duration-300">
           <nav className="p-6">
-            <ul className="grid grid-cols-2 gap-4 text-[11px] font-bold uppercase tracking-widest text-axis-navy">
+            <ul className="grid grid-cols-2 gap-4 text-[10px] font-bold uppercase tracking-widest text-axis-navy">
               {categories.map((item) => (
                 <li key={item}>
                   <button 
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={handleNavClick}
                     className="w-full text-left py-3 border-b border-gray-100 active:text-axis-maroon"
                   >
                     {item}
@@ -91,12 +94,6 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 pt-6 border-t border-gray-200 space-y-4">
-              <button className="block w-full text-center py-3 bg-axis-navy text-white font-bold uppercase tracking-widest text-[9px]">
-                Subscribe Now
-              </button>
-              <p className="text-center text-[9px] text-gray-500 font-serif italic">{date}</p>
-            </div>
           </nav>
         </div>
       )}
