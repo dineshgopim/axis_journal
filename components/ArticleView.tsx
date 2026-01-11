@@ -45,8 +45,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
           </span>
         </div>
         
-        {/* Main Heading: Decreased by 10% from (3xl, 4xl, 5xl, 7xl) */}
-        <h1 className="font-serif text-[1.68rem] sm:text-[2.02rem] md:text-[2.7rem] lg:text-[4.05rem] font-black leading-[1.1] text-axis-charcoal mb-8 tracking-tight">
+        {/* Main Heading: Decreased by another 10% from the previous turn's values */}
+        <h1 className="font-serif text-[1.51rem] sm:text-[1.82rem] md:text-[2.43rem] lg:text-[3.65rem] font-black leading-[1.1] text-axis-charcoal mb-8 tracking-tight">
           {article.title}
         </h1>
         
@@ -91,8 +91,8 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
               
               case 'subheading':
                 return (
-                  /* Subheading: Now using font-body (Lora) as requested */
-                  <h2 key={index} className="font-body text-2xl md:text-3xl font-black text-axis-navy pt-8 pb-2 tracking-tight leading-snug text-center italic">
+                  /* Subheading: Font size increased by 10% from 2xl/3xl to ~1.65rem/2.06rem */
+                  <h2 key={index} className="font-body text-[1.65rem] md:text-[2.06rem] font-black text-axis-navy pt-8 pb-2 tracking-tight leading-snug text-center italic">
                     {block.content}
                   </h2>
                 );

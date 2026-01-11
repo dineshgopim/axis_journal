@@ -6,10 +6,10 @@ interface ImpactBoxProps {
 
 const ImpactBox: React.FC<ImpactBoxProps> = ({ text }) => {
   return (
-    <div className="my-3 md:my-4 p-5 md:p-8 bg-axis-gray border border-gray-200 text-center shadow-sm max-w-[90%] mx-auto">
+    <div className="my-2 md:my-3 p-4 md:p-6 bg-axis-gray border border-gray-200 text-center shadow-sm max-w-[80%] mx-auto">
       {/* 
-        Updated to font-body (Serif/Lora) as requested previously. 
-        Size remains increased by 15% from base, but the container is now smaller.
+        Typography matches the body font (Lora) and is sized 15% larger than base text.
+        Container padding and max-width reduced for a more compact look.
       */}
       <p className="font-body font-bold text-[1.3rem] md:text-[1.45rem] text-axis-maroon leading-relaxed">
         {text}
