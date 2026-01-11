@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ author }) => {
               />
             )}
             <h4 className="font-serif font-bold text-xl text-axis-charcoal">{author.name}</h4>
-            <p className="text-xs font-bold text-axis-maroon uppercase tracking-wider mt-1 mb-3">{author.role}</p>
+            <p className="text-[9px] font-bold text-axis-maroon uppercase tracking-wider mt-1 mb-3">{author.role}</p>
             <p className="font-body text-sm text-gray-600 leading-relaxed italic">
               "{author.bio}"
             </p>
@@ -37,10 +37,10 @@ const Sidebar: React.FC<SidebarProps> = ({ author }) => {
           <p className="font-body text-sm text-gray-300 mb-6 leading-relaxed">
             Support independent, slow journalism. Get unlimited access to our archive and weekly curated briefings.
           </p>
-          <button className="w-full py-3 bg-white text-axis-navy font-bold uppercase tracking-widest text-xs hover:bg-axis-cream transition-colors duration-300">
+          <button className="w-full py-3 bg-white text-axis-navy font-bold uppercase tracking-widest text-[10px] hover:bg-axis-cream transition-colors duration-300">
             Start Free Trial
           </button>
-          <p className="text-[10px] text-gray-400 mt-4 uppercase tracking-widest">Cancel anytime</p>
+          <p className="text-[9px] text-gray-400 mt-4 uppercase tracking-widest">Cancel anytime</p>
         </div>
         
         {/* Decorative circle */}

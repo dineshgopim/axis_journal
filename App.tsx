@@ -62,8 +62,8 @@ function App() {
                 </p>
              </div>
              <div>
-                <h5 className="font-bold uppercase tracking-[0.3em] text-[10px] text-axis-maroon mb-8 underline underline-offset-8">Information</h5>
-                <ul className="space-y-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <h5 className="font-bold uppercase tracking-[0.3em] text-[9px] text-axis-maroon mb-8 underline underline-offset-8">Information</h5>
+                <ul className="space-y-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
                    <li><a href="#" className="hover:text-white transition-colors">The Masthead</a></li>
                    <li><a href="#" className="hover:text-white transition-colors">Ethics Guidelines</a></li>
                    <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
@@ -71,8 +71,8 @@ function App() {
                 </ul>
              </div>
              <div>
-                <h5 className="font-bold uppercase tracking-[0.3em] text-[10px] text-axis-maroon mb-8 underline underline-offset-8">Engagement</h5>
-                <ul className="space-y-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <h5 className="font-bold uppercase tracking-[0.3em] text-[9px] text-axis-maroon mb-8 underline underline-offset-8">Engagement</h5>
+                <ul className="space-y-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">
                    <li><a href="#" className="hover:text-white transition-colors">Daily Briefing</a></li>
                    <li><a href="#" className="hover:text-white transition-colors">Axis Podcasts</a></li>
                    <li><a href="#" className="hover:text-white transition-colors">Member Events</a></li>
@@ -81,7 +81,7 @@ function App() {
              </div>
            </div>
            
-           <div className="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-gray-600">
+           <div className="flex flex-col md:flex-row justify-between items-center text-[9px] uppercase tracking-[0.3em] text-gray-600">
              <p>© {new Date().getFullYear()} Axis Journal Publication Group. All rights reserved.</p>
              <div className="mt-8 md:mt-0 space-x-10">
                <span className="hover:text-gray-400 cursor-default">NYC</span>

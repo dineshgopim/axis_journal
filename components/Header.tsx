@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
     <header className="border-b border-gray-200 bg-axis-cream sticky top-0 z-50">
       {/* Top Bar - Date and Utility (Desktop Only) */}
       <div className="hidden md:block container mx-auto px-4 py-2 border-b border-gray-100">
-        <div className="flex justify-between items-center text-[10px] font-serif uppercase tracking-[0.2em] text-gray-500">
+        <div className="flex justify-between items-center text-[9px] font-serif uppercase tracking-[0.2em] text-gray-500">
           <span>{date}</span>
           <div className="space-x-6">
             <button className="hover:text-axis-maroon transition-colors">Digital Archive</button>
@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:block container mx-auto px-4">
-        <ul className="flex justify-center gap-8 lg:gap-12 text-[11px] font-bold uppercase tracking-[0.15em] text-axis-navy py-4">
+        <ul className="flex justify-center gap-8 lg:gap-12 text-[10px] font-bold uppercase tracking-[0.15em] text-axis-navy py-4">
           {categories.map((item) => (
             <li key={item}>
               <button className="hover:text-axis-maroon transition-colors relative group">
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-axis-cream border-b border-gray-200 shadow-xl animate-in slide-in-from-top duration-300">
           <nav className="p-6">
-            <ul className="grid grid-cols-2 gap-4 text-xs font-bold uppercase tracking-widest text-axis-navy">
+            <ul className="grid grid-cols-2 gap-4 text-[10px] font-bold uppercase tracking-widest text-axis-navy">
               {categories.map((item) => (
                 <li key={item}>
                   <button 
@@ -92,10 +92,10 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
               ))}
             </ul>
             <div className="mt-8 pt-6 border-t border-gray-200 space-y-4">
-              <button className="block w-full text-center py-3 bg-axis-navy text-white font-bold uppercase tracking-widest text-[10px]">
+              <button className="block w-full text-center py-3 bg-axis-navy text-white font-bold uppercase tracking-widest text-[9px]">
                 Subscribe Now
               </button>
-              <p className="text-center text-[10px] text-gray-500 font-serif italic">{date}</p>
+              <p className="text-center text-[9px] text-gray-500 font-serif italic">{date}</p>
             </div>
           </nav>
         </div>

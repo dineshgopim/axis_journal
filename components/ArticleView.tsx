@@ -36,11 +36,11 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
       {/* Article Header */}
       <header className="mb-16 md:mb-24 text-left md:text-center max-w-4xl mx-auto px-4 md:px-0">
         <div className="flex items-center md:justify-center gap-4 mb-10">
-          <span className="text-[10px] font-sans font-bold uppercase tracking-[0.4em] text-axis-maroon bg-axis-maroon/5 px-3 py-1.5 rounded-sm">
+          <span className="text-[9px] font-sans font-bold uppercase tracking-[0.4em] text-axis-maroon bg-axis-maroon/5 px-3 py-1.5 rounded-sm">
             {article.category}
           </span>
           <div className="h-px w-6 bg-axis-maroon/20"></div>
-          <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-gray-400">
+          <span className="text-[9px] font-sans font-bold uppercase tracking-[0.2em] text-gray-400">
             {readTime}
           </span>
         </div>
@@ -55,10 +55,10 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
 
         <div className="flex flex-col items-center justify-center py-10 border-y border-axis-charcoal/5">
           <div className="flex items-center gap-3 mb-2">
-            <span className="font-sans text-[10px] uppercase font-bold tracking-[0.3em] text-gray-400">By</span>
+            <span className="font-sans text-[9px] uppercase font-bold tracking-[0.3em] text-gray-400">By</span>
             <span className="font-serif font-bold text-xl text-axis-charcoal decoration-axis-maroon/20 decoration-2 underline-offset-4 underline">{article.author.name}</span>
           </div>
-          <time className="font-sans text-[10px] uppercase tracking-[0.25em] text-gray-400 mt-2">{article.date}</time>
+          <time className="font-sans text-[9px] uppercase tracking-[0.25em] text-gray-400 mt-2">{article.date}</time>
         </div>
       </header>
 
@@ -70,7 +70,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
             alt={article.title} 
             className="w-full h-auto max-h-[75vh] object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-[2.5s] ease-in-out"
           />
-          <figcaption className="bg-white/70 backdrop-blur-md py-4 px-8 text-right text-[9px] font-sans font-bold uppercase tracking-[0.4em] text-gray-500 border-t border-black/5">
+          <figcaption className="bg-white/70 backdrop-blur-md py-4 px-8 text-right text-[8px] font-sans font-bold uppercase tracking-[0.4em] text-gray-500 border-t border-black/5">
             Photography & Digital Archive &copy; Axis Journal Media Group
           </figcaption>
         </figure>
@@ -86,7 +86,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
                 if (isContentNote) {
                   return (
                     <div key={index} className="bg-axis-gray/50 border-l-[3px] border-axis-maroon p-8 my-14 shadow-sm ring-1 ring-black/5">
-                      <p className="font-sans text-[10px] uppercase font-bold tracking-[0.4em] text-axis-maroon mb-4">Editorial Note</p>
+                      <p className="font-sans text-[9px] uppercase font-bold tracking-[0.4em] text-axis-maroon mb-4">Editorial Note</p>
                       <p className="italic text-gray-600 text-[1rem] leading-relaxed" dangerouslySetInnerHTML={{ __html: block.content }} />
                     </div>
                   );
@@ -115,7 +115,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
               case 'list':
                 return (
                    <div key={index} className="bg-white border-y border-axis-charcoal/10 p-10 md:p-14 my-20">
-                     <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-12 text-center">Referenced Scholarly Sources</h4>
+                     <h4 className="font-sans font-bold text-[9px] uppercase tracking-[0.5em] text-gray-400 mb-12 text-center">Referenced Scholarly Sources</h4>
                      <ul className="space-y-6 font-body text-base text-gray-600 max-w-2xl mx-auto">
                         {block.items?.map((item, i) => (
                           <li key={i} className="group flex items-start gap-5">
@@ -140,7 +140,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         <div className="mt-40 pt-20 border-t border-axis-charcoal/5 flex flex-col items-center">
           <div className="flex gap-14 mb-16">
              {['Twitter', 'LinkedIn', 'Copy Link'].map(social => (
-               <button key={social} className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 hover:text-axis-navy transition-all duration-300">
+               <button key={social} className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400 hover:text-axis-navy transition-all duration-300">
                  {social}
                </button>
              ))}
@@ -148,7 +148,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
           <div className="w-16 h-px bg-axis-charcoal/10 mb-16"></div>
           <div className="text-center">
             <h5 className="font-serif italic text-xl text-axis-charcoal mb-8">Continuing the conversation.</h5>
-            <button className="group relative inline-flex items-center px-12 py-5 font-sans text-[11px] font-bold uppercase tracking-[0.4em] text-white bg-axis-navy overflow-hidden transition-all hover:bg-axis-maroon">
+            <button className="group relative inline-flex items-center px-12 py-5 font-sans text-[10px] font-bold uppercase tracking-[0.4em] text-white bg-axis-navy overflow-hidden transition-all hover:bg-axis-maroon">
               <span className="relative z-10">Receive Next Dispatch</span>
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 bg-axis-maroon"></div>
             </button>

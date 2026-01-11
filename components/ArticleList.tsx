@@ -57,7 +57,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
         >
           <div className="overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-axis-maroon">
+              <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-axis-maroon">
                 Cover Dispatch
               </span>
               <div className="h-px w-8 bg-axis-maroon/20"></div>
@@ -73,21 +73,21 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
           </div>
 
           <div className="flex items-center justify-between">
-            <button className="text-[11px] md:text-xs font-bold uppercase tracking-[0.3em] text-axis-navy flex items-center group/btn relative overflow-hidden py-1">
+            <button className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] text-axis-navy flex items-center group/btn relative overflow-hidden py-1">
               <span className="relative z-10">Read Full Article</span>
               <span className="ml-3 transform group-hover/btn:translate-x-2 transition-transform">&rarr;</span>
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-axis-maroon/20 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left"></div>
             </button>
             <div className="hidden md:flex flex-col items-end opacity-50">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-axis-charcoal">Report {featuredArticle.id.slice(0,4).toUpperCase()}</span>
-              <span className="text-[8px] font-serif italic text-gray-400 mt-0.5">{featuredArticle.date}</span>
+              <span className="text-[8px] font-bold uppercase tracking-widest text-axis-charcoal">Report {featuredArticle.id.slice(0,4).toUpperCase()}</span>
+              <span className="text-[7px] font-serif italic text-gray-400 mt-0.5">{featuredArticle.date}</span>
             </div>
           </div>
         </div>
 
         {/* Branding Watermark */}
         <div className="absolute bottom-8 right-8 hidden lg:block pointer-events-none select-none">
-          <span className="font-serif text-[10rem] font-black text-white opacity-10 leading-none">
+          <span className="font-serif text-[9rem] font-black text-white opacity-10 leading-none">
             AJ
           </span>
         </div>
@@ -97,7 +97,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
       <section className="container mx-auto px-4 lg:px-12 pb-24">
         <div className="flex items-center gap-8 mb-20">
           <div className="h-px flex-grow bg-axis-charcoal/10"></div>
-          <h3 className="text-[11px] font-bold uppercase tracking-[0.6em] text-gray-400 whitespace-nowrap">
+          <h3 className="text-[10px] font-bold uppercase tracking-[0.6em] text-gray-400 whitespace-nowrap">
             Curated Insights
           </h3>
           <div className="h-px flex-grow bg-axis-charcoal/10"></div>
@@ -122,10 +122,10 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
 
                 <div className="flex-grow">
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-axis-maroon bg-axis-maroon/5 px-2 py-0.5">
+                    <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-axis-maroon bg-axis-maroon/5 px-2 py-0.5">
                       {article.category}
                     </span>
-                    <span className="text-[10px] font-serif italic text-gray-400">{article.date}</span>
+                    <span className="text-[9px] font-serif italic text-gray-400">{article.date}</span>
                   </div>
                   
                   <h4 className="font-serif text-3xl font-bold text-axis-charcoal leading-tight mb-6 group-hover:text-axis-navy transition-colors tracking-tight">
@@ -143,13 +143,13 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
                         {article.author.name.charAt(0)}
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-axis-charcoal opacity-80">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-axis-charcoal opacity-80">
                           {article.author.name}
                         </span>
-                        <span className="text-[9px] text-gray-400 uppercase tracking-tighter">Contributor</span>
+                        <span className="text-[8px] text-gray-400 uppercase tracking-tighter">Contributor</span>
                       </div>
                    </div>
-                   <span className="text-[11px] font-bold text-axis-navy group-hover:text-axis-maroon transition-colors underline underline-offset-4 decoration-axis-navy/10 group-hover:decoration-axis-maroon/50">
+                   <span className="text-[10px] font-bold text-axis-navy group-hover:text-axis-maroon transition-colors underline underline-offset-4 decoration-axis-navy/10 group-hover:decoration-axis-maroon/50">
                      Open Dispatch &rarr;
                    </span>
                 </div>
@@ -171,7 +171,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
           </p>
           <div className="flex justify-center items-center gap-6">
             <div className="h-px w-20 bg-axis-maroon opacity-50"></div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.7em] text-axis-maroon">Our Commitment</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.7em] text-axis-maroon">Our Commitment</p>
             <div className="h-px w-20 bg-axis-maroon opacity-50"></div>
           </div>
         </div>
