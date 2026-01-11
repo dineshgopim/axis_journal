@@ -27,14 +27,14 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
 
   return (
     <article className="animate-in fade-in duration-1000">
-      {/* Reading Progress Bar - Sits right below the sticky header */}
+      {/* Reading Progress Bar */}
       <div 
         className="fixed top-[110px] md:top-[160px] lg:top-[178px] left-0 h-[3px] bg-axis-maroon z-50 transition-all duration-150 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* Article Header Container */}
-      <header className="mb-12 md:mb-20 text-center max-w-4xl mx-auto px-4 md:px-0">
+      {/* Article Header */}
+      <header className="mb-12 md:mb-20 text-center max-w-4xl mx-auto px-4 md:px-0 pt-8">
         <div className="flex items-center justify-center gap-4 mb-8">
           <span className="text-[10px] font-sans font-bold uppercase tracking-[0.4em] text-axis-maroon border border-axis-maroon/20 px-3 py-1">
             {article.category}
@@ -49,7 +49,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
           {article.title}
         </h1>
         
-        <p className="font-body text-xl md:text-2xl text-gray-500 leading-relaxed italic mb-10 max-w-2xl mx-auto">
+        <p className="font-body text-lg md:text-xl lg:text-2xl text-gray-500 leading-relaxed italic mb-10 max-w-3xl mx-auto">
           {article.subtitle}
         </p>
 
@@ -62,13 +62,13 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         </div>
       </header>
 
-      {/* Cover Image - Adjusted for better visual balance */}
+      {/* Cover Image */}
       {article.coverImage && (
         <figure className="mb-16 md:mb-24 -mx-4 md:-mx-8 lg:-mx-12 overflow-hidden shadow-2xl shadow-black/5">
           <img 
             src={article.coverImage} 
             alt={article.title} 
-            className="w-full h-auto object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-[2s]"
+            className="w-full h-auto max-h-[70vh] object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-[2s]"
           />
           <figcaption className="bg-white/50 backdrop-blur-sm py-3 px-6 text-right text-[9px] font-sans font-bold uppercase tracking-[0.3em] text-gray-400">
             Digital Archive | Axis Journal Visualization
@@ -76,34 +76,35 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         </figure>
       )}
 
-      {/* Main Reading Column - Perfected Typography */}
+      {/* Main Reading Column */}
       <div className="max-w-[700px] mx-auto px-4 md:px-0">
-        <div className="font-body text-lg md:text-[1.2rem] leading-[1.85] text-axis-charcoal space-y-10 selection:bg-axis-maroon/10">
+        <div className="font-body text-[1.15rem] md:text-[1.25rem] leading-[1.85] text-gray-800 space-y-12 selection:bg-axis-maroon/10">
           {article.content.map((block, index) => {
             switch (block.type) {
               case 'paragraph':
-                const isContentNote = block.content.startsWith('Content Note:');
+                const isContentNote = block.content.includes('Content Note:');
                 if (isContentNote) {
                   return (
                     <div key={index} className="bg-axis-gray border-l-4 border-axis-maroon p-8 my-12 shadow-sm">
-                      <p className="font-sans text-xs uppercase font-bold tracking-widest text-axis-maroon mb-2">Editor's Note</p>
-                      <p className="italic text-gray-600 text-base leading-relaxed">{block.content}</p>
+                      <p className="font-sans text-xs uppercase font-bold tracking-widest text-axis-maroon mb-3">Editor's Note</p>
+                      <p className="italic text-gray-600 text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: block.content }} />
                     </div>
                   );
                 }
                 
-                // Professional Drop Cap on the first substantive paragraph
-                const isFirstParagraph = index === 0 || (index === 1 && article.content[0].content.startsWith('Content Note:'));
+                const isFirstParagraph = index === 0 || (index === 1 && article.content[0].content.includes('Content Note:'));
                 
                 return (
-                  <p key={index} className={`${isFirstParagraph ? 'drop-cap' : ''} text-gray-800 antialiased`}>
-                    {block.content}
-                  </p>
+                  <p 
+                    key={index} 
+                    className={`${isFirstParagraph ? 'drop-cap' : ''} antialiased`}
+                    dangerouslySetInnerHTML={{ __html: block.content }}
+                  />
                 );
               
               case 'subheading':
                 return (
-                  <h2 key={index} className="font-serif text-2xl md:text-3xl font-black text-axis-navy pt-14 pb-4 tracking-tight leading-tight">
+                  <h2 key={index} className="font-serif text-2xl md:text-3xl font-black text-axis-navy pt-16 pb-6 tracking-tight leading-tight border-b border-axis-navy/5 mb-8">
                     {block.content}
                   </h2>
                 );
@@ -113,7 +114,7 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
               
               case 'list':
                 return (
-                   <div key={index} className="bg-white border border-axis-charcoal/5 p-10 my-16 shadow-inner">
+                   <div key={index} className="bg-white border border-axis-charcoal/5 p-10 my-20 shadow-inner">
                      <h4 className="font-sans font-bold text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-10 border-b border-axis-charcoal/5 pb-4">Citations & Scholarly Resources</h4>
                      <ul className="space-y-6 font-body text-base text-gray-600">
                         {block.items?.map((item, i) => (
@@ -134,17 +135,17 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
           })}
         </div>
 
-        {/* Article Footer / Engagement */}
-        <div className="mt-32 pt-12 border-t border-axis-charcoal/5 flex flex-col items-center">
-          <div className="flex gap-10 mb-12">
+        {/* Footer */}
+        <div className="mt-40 pt-16 border-t border-axis-charcoal/5 flex flex-col items-center">
+          <div className="flex gap-12 mb-16">
              {['Twitter', 'LinkedIn', 'Email'].map(social => (
-               <button key={social} className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 hover:text-axis-maroon transition-all hover:scale-105">
+               <button key={social} className="font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 hover:text-axis-maroon transition-all hover:scale-110">
                  {social}
                </button>
              ))}
           </div>
-          <div className="w-12 h-px bg-axis-charcoal/10 mb-12"></div>
-          <button className="font-sans text-[10px] font-bold uppercase tracking-[0.4em] text-axis-navy border-2 border-axis-navy px-10 py-4 hover:bg-axis-navy hover:text-white transition-all transform active:scale-95">
+          <div className="w-16 h-px bg-axis-charcoal/10 mb-16"></div>
+          <button className="font-sans text-[10px] font-bold uppercase tracking-[0.4em] text-axis-navy border-2 border-axis-navy px-12 py-5 hover:bg-axis-navy hover:text-white transition-all transform active:scale-95 shadow-xl shadow-axis-navy/5">
             Receive Next Dispatch
           </button>
         </div>
