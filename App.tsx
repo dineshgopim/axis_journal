@@ -24,32 +24,27 @@ function App() {
       <Header onLogoClick={handleLogoClick} />
 
       <main className="flex-grow">
-        {currentArticle ? (
-          /* ARTICLE VIEW: Centered with Sidebar */
-          <div className="container mx-auto px-4 md:px-8 lg:px-12 py-10 md:py-20">
-            <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
-              <div className="flex-grow w-full lg:max-w-[900px]">
-                <div className="max-w-[800px] mx-auto lg:mx-0">
-                  <ArticleView article={currentArticle} />
-                </div>
-              </div>
+        <div className="container mx-auto px-4 md:px-0 flex flex-col items-center">
+          {currentArticle ? (
+            /* ARTICLE VIEW: Centered Column @ 60% width on large screens */
+            <div className="w-full md:w-[85%] lg:w-[60%] py-12 md:py-24">
+              <ArticleView article={currentArticle} />
               
-              <div className="w-full lg:w-[320px] xl:w-[360px] mt-20 lg:mt-0 flex-shrink-0">
-                <div className="lg:sticky lg:top-[160px]">
-                  <Sidebar author={currentArticle.author} />
-                </div>
+              {/* Sidebar content moved to bottom of article for a focused reading flow */}
+              <div className="mt-32 pt-20 border-t border-axis-charcoal/10">
+                <Sidebar author={currentArticle.author} />
               </div>
             </div>
-          </div>
-        ) : (
-          /* HOME PAGE: Starts immediately after the header */
-          <div className="w-full">
-            <ArticleList 
-              articles={articles} 
-              onSelectArticle={handleSelectArticle} 
-            />
-          </div>
-        )}
+          ) : (
+            /* HOME PAGE: Centered Feed @ 60% width on large screens */
+            <div className="w-full md:w-[85%] lg:w-[60%]">
+              <ArticleList 
+                articles={articles} 
+                onSelectArticle={handleSelectArticle} 
+              />
+            </div>
+          )}
+        </div>
       </main>
 
       <footer className="bg-axis-charcoal text-white pt-24 pb-12 border-t-8 border-axis-navy mt-12">

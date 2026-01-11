@@ -7,66 +7,41 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ author }) => {
   return (
-    <aside className="w-full lg:w-80 flex-shrink-0 space-y-8 mt-12 lg:mt-0">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
       
-      {/* Author Bio Section - Only shows if author is provided (i.e., on Article page) */}
+      {/* Author Bio Section - Text Only */}
       {author && (
-        <div className="bg-white border border-gray-200 p-6 shadow-sm">
-          <h3 className="font-serif font-bold text-lg text-axis-navy mb-4 border-b border-gray-100 pb-2">About the Author</h3>
-          <div className="flex flex-col items-center text-center">
-            {author.imageUrl && (
-              <img 
-                src={author.imageUrl} 
-                alt={author.name} 
-                className="w-24 h-24 rounded-full object-cover mb-4 border-2 border-gray-100 grayscale hover:grayscale-0 transition-all duration-500"
-              />
-            )}
-            <h4 className="font-serif font-bold text-xl text-axis-charcoal">{author.name}</h4>
-            <p className="text-[9px] font-bold text-axis-maroon uppercase tracking-wider mt-1 mb-3">{author.role}</p>
-            <p className="font-body text-sm text-gray-600 leading-relaxed italic">
-              "{author.bio}"
+        <div className="bg-white border-l-4 border-axis-navy p-10 shadow-sm">
+          <h3 className="font-serif font-bold text-xs uppercase tracking-[0.4em] text-axis-maroon mb-6">About the Author</h3>
+          <div className="flex flex-col">
+            <h4 className="font-serif font-bold text-3xl text-axis-charcoal mb-2 italic">{author.name}</h4>
+            <p className="text-[10px] font-bold text-axis-navy uppercase tracking-[0.3em] mb-6">{author.role}</p>
+            <p className="font-body text-base text-gray-600 leading-relaxed">
+              {author.bio}
             </p>
           </div>
         </div>
       )}
 
-      {/* Subscription Box - Always visible */}
-      <div className="bg-axis-navy text-white p-8 text-center relative overflow-hidden">
+      {/* Subscription Box - High Contrast Typographic */}
+      <div className="bg-axis-navy text-white p-12 text-center relative overflow-hidden flex flex-col justify-center min-h-[300px]">
         <div className="relative z-10">
-          <h3 className="font-serif font-bold text-2xl mb-2">Subscribe to Axis</h3>
-          <p className="font-body text-sm text-gray-300 mb-6 leading-relaxed">
-            Support independent, slow journalism. Get unlimited access to our archive and weekly curated briefings.
+          <h3 className="font-serif font-bold text-3xl mb-4 tracking-tight">The Axis Newsletter</h3>
+          <p className="font-body text-base text-gray-300 mb-8 leading-relaxed max-w-sm mx-auto">
+            Rigorous investigation delivered to your inbox every Sunday morning. Support independent slow journalism.
           </p>
-          <button className="w-full py-3 bg-white text-axis-navy font-bold uppercase tracking-widest text-[10px] hover:bg-axis-cream transition-colors duration-300">
-            Start Free Trial
-          </button>
-          <p className="text-[9px] text-gray-400 mt-4 uppercase tracking-widest">Cancel anytime</p>
+          <div className="flex flex-col gap-4">
+            <button className="w-full py-4 bg-white text-axis-navy font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-axis-cream transition-colors duration-300">
+              Join the Dispatch
+            </button>
+            <p className="text-[9px] text-gray-400 uppercase tracking-[0.4em]">Privacy First &bull; No Tracking</p>
+          </div>
         </div>
         
-        {/* Decorative circle */}
-        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white opacity-5 rounded-full"></div>
+        {/* Abstract watermark decoration */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/5 rounded-full pointer-events-none"></div>
       </div>
-
-      {/* Recommended/Trending (Simulated) */}
-      <div className="hidden lg:block">
-        <h3 className="font-serif font-bold text-sm uppercase tracking-widest text-gray-400 mb-4">Trending Now</h3>
-        <ul className="space-y-4">
-          <li className="group cursor-pointer">
-            <span className="text-axis-maroon font-bold text-lg mr-2">1</span>
-            <span className="font-serif font-bold text-axis-charcoal group-hover:text-axis-maroon transition-colors">The End of the Open Office</span>
-          </li>
-          <li className="group cursor-pointer">
-            <span className="text-axis-maroon font-bold text-lg mr-2">2</span>
-            <span className="font-serif font-bold text-axis-charcoal group-hover:text-axis-maroon transition-colors">Philosophy in the Age of AI</span>
-          </li>
-          <li className="group cursor-pointer">
-            <span className="text-axis-maroon font-bold text-lg mr-2">3</span>
-            <span className="font-serif font-bold text-axis-charcoal group-hover:text-axis-maroon transition-colors">Minimalism as a Service</span>
-          </li>
-        </ul>
-      </div>
-
-    </aside>
+    </div>
   );
 };
 
