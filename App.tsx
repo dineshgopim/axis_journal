@@ -25,13 +25,15 @@ function App() {
 
       <main className="flex-grow">
         {/* Content Wrapper */}
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-16">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 py-10 md:py-20">
           <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-24">
             
-            {/* Main Column: Constrained for readability, but scales nicely */}
-            <div className="flex-grow w-full lg:max-w-[800px] xl:max-w-[850px]">
+            {/* Main Column */}
+            <div className="flex-grow w-full lg:max-w-[900px]">
               {currentArticle ? (
-                <ArticleView article={currentArticle} />
+                <div className="max-w-[800px] mx-auto lg:mx-0">
+                  <ArticleView article={currentArticle} />
+                </div>
               ) : (
                 <ArticleList 
                   articles={articles} 
@@ -41,18 +43,23 @@ function App() {
             </div>
 
             {/* Sidebar: Sticky on laptop, bottom on mobile */}
-            <div className="w-full lg:w-[320px] xl:w-[380px] mt-12 lg:mt-0 flex-shrink-0">
+            <div className="w-full lg:w-[320px] xl:w-[360px] mt-20 lg:mt-0 flex-shrink-0">
                <div className="lg:sticky lg:top-[160px]">
                   <Sidebar author={currentArticle?.author} />
                   
                   {/* Additional desktop footer-like content in sidebar */}
-                  <div className="hidden lg:block mt-12 pt-8 border-t border-gray-200">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                      Archive Index 1892 - 2025
+                  <div className="hidden lg:block mt-16 pt-10 border-t border-gray-200">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-axis-maroon mb-4">
+                      Archive Index
                     </p>
-                    <p className="text-[10px] mt-2 text-gray-400 font-serif italic">
-                      Members get exclusive access to 130 years of clarity.
-                    </p>
+                    <div className="space-y-4">
+                      <p className="text-[11px] leading-relaxed text-gray-500 font-serif italic">
+                        Access over a century of investigative journalism, long-form essays, and critical analysis.
+                      </p>
+                      <button className="text-[10px] font-bold uppercase tracking-widest text-axis-navy border-b border-axis-navy/30 pb-1 hover:text-axis-maroon hover:border-axis-maroon transition-all">
+                        Browse Issues &rarr;
+                      </button>
+                    </div>
                   </div>
                </div>
             </div>
@@ -61,41 +68,41 @@ function App() {
         </div>
       </main>
 
-      <footer className="bg-axis-charcoal text-white pt-20 pb-12 border-t-8 border-axis-navy mt-24">
-        <div className="container mx-auto px-4">
-           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
-             <div className="md:col-span-2">
-                <h4 className="font-serif font-bold text-4xl mb-6">Axis Journal</h4>
-                <p className="font-body text-gray-400 max-w-md leading-relaxed">
-                  Dedicated to rigorous investigation, cultural preservation, and the pursuit of clarity in an increasingly fragmented world.
+      <footer className="bg-axis-charcoal text-white pt-24 pb-12 border-t-8 border-axis-navy mt-32">
+        <div className="container mx-auto px-4 lg:px-12">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20 border-b border-white/10 pb-20">
+             <div className="lg:col-span-2">
+                <h4 className="font-serif font-bold text-5xl tracking-tighter mb-8">Axis Journal</h4>
+                <p className="font-body text-gray-400 max-w-md text-lg leading-relaxed opacity-80">
+                  A high-end digital publication dedicated to rigorous investigation, cultural preservation, and the pursuit of clarity in a fragmented age.
                 </p>
              </div>
              <div>
-                <h5 className="font-bold uppercase tracking-[0.2em] text-[10px] text-axis-maroon mb-6">Publication</h5>
-                <ul className="space-y-3 text-sm text-gray-300">
-                   <li><a href="#" className="hover:text-white transition-colors">Masthead</a></li>
-                   <li><a href="#" className="hover:text-white transition-colors">Ethics Policy</a></li>
+                <h5 className="font-bold uppercase tracking-[0.3em] text-[10px] text-axis-maroon mb-8 underline underline-offset-8">Information</h5>
+                <ul className="space-y-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                   <li><a href="#" className="hover:text-white transition-colors">The Masthead</a></li>
+                   <li><a href="#" className="hover:text-white transition-colors">Ethics Guidelines</a></li>
                    <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                   <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                   <li><a href="#" className="hover:text-white transition-colors">Terms of Dispatch</a></li>
                 </ul>
              </div>
              <div>
-                <h5 className="font-bold uppercase tracking-[0.2em] text-[10px] text-axis-maroon mb-6">Connect</h5>
-                <ul className="space-y-3 text-sm text-gray-300">
-                   <li><a href="#" className="hover:text-white transition-colors">Newsletters</a></li>
-                   <li><a href="#" className="hover:text-white transition-colors">Podcasts</a></li>
-                   <li><a href="#" className="hover:text-white transition-colors">Customer Service</a></li>
-                   <li><a href="#" className="hover:text-white transition-colors">Advertise</a></li>
+                <h5 className="font-bold uppercase tracking-[0.3em] text-[10px] text-axis-maroon mb-8 underline underline-offset-8">Engagement</h5>
+                <ul className="space-y-4 text-xs font-bold uppercase tracking-widest text-gray-400">
+                   <li><a href="#" className="hover:text-white transition-colors">Daily Briefing</a></li>
+                   <li><a href="#" className="hover:text-white transition-colors">Axis Podcasts</a></li>
+                   <li><a href="#" className="hover:text-white transition-colors">Member Events</a></li>
+                   <li><a href="#" className="hover:text-white transition-colors">Advertising</a></li>
                 </ul>
              </div>
            </div>
            
-           <div className="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-500">
-             <p>© {new Date().getFullYear()} Axis Journal Publication Group.</p>
-             <div className="mt-4 md:mt-0 space-x-6">
-               <span>New York</span>
-               <span>London</span>
-               <span>Mumbai</span>
+           <div className="flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-gray-600">
+             <p>© {new Date().getFullYear()} Axis Journal Publication Group. All rights reserved.</p>
+             <div className="mt-8 md:mt-0 space-x-10">
+               <span className="hover:text-gray-400 cursor-default">NYC</span>
+               <span className="hover:text-gray-400 cursor-default">LDN</span>
+               <span className="hover:text-gray-400 cursor-default">MUM</span>
              </div>
            </div>
         </div>
