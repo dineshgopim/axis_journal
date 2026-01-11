@@ -42,7 +42,7 @@ function App() {
             </div>
           </div>
         ) : (
-          /* HOME PAGE: Full width hero followed by grid */
+          /* HOME PAGE: Starts immediately after the header */
           <div className="w-full">
             <ArticleList 
               articles={articles} 
@@ -52,7 +52,7 @@ function App() {
         )}
       </main>
 
-      <footer className="bg-axis-charcoal text-white pt-24 pb-12 border-t-8 border-axis-navy mt-32">
+      <footer className="bg-axis-charcoal text-white pt-24 pb-12 border-t-8 border-axis-navy mt-12">
         <div className="container mx-auto px-4 lg:px-12">
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20 border-b border-white/10 pb-20">
              <div className="lg:col-span-2">
