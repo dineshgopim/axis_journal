@@ -14,25 +14,25 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles, onSelectArticle }) 
     <div className="animate-in fade-in duration-1000">
       {/* 
         FEATURED ARTICLE "TYPOGRAPHIC STAGE" 
-        Decreased title and subtitle font sizes by 10%.
+        Reduced vertical padding (pt-8 md:pt-12) to push content up.
       */}
       <section 
-        className="relative w-full py-24 md:py-32 mb-16 overflow-hidden group cursor-pointer border-b border-axis-charcoal/10"
+        className="relative w-full pt-8 md:pt-12 pb-20 md:pb-24 mb-12 overflow-hidden group cursor-pointer border-b border-axis-charcoal/10"
         onClick={() => onSelectArticle(featuredArticle)}
       >
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-6">
             <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-axis-maroon">
               Featured Dispatch
             </span>
             <div className="h-px w-12 bg-axis-maroon/20"></div>
           </div>
           
-          <h2 className="font-serif text-[1.68rem] md:text-[2.7rem] lg:text-[3.37rem] font-black text-axis-charcoal leading-[1.1] tracking-tight group-hover:text-axis-navy transition-colors mb-8">
+          <h2 className="font-serif text-[1.68rem] md:text-[2.7rem] lg:text-[3.37rem] font-black text-axis-charcoal leading-[1.1] tracking-tight group-hover:text-axis-navy transition-colors mb-6">
             {featuredArticle.title}
           </h2>
           
-          <p className="font-body text-[1rem] md:text-[1.12rem] text-gray-500 leading-relaxed max-w-2xl opacity-90 mb-12 italic">
+          <p className="font-body text-[1rem] md:text-[1.12rem] text-gray-500 leading-relaxed max-w-2xl opacity-90 mb-10 italic">
             {featuredArticle.subtitle}
           </p>
 

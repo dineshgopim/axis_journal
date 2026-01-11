@@ -36,8 +36,8 @@ function App() {
               </div>
             </div>
           ) : (
-            /* HOME PAGE: Slightly wider for the feed, but centered */
-            <div className="w-full max-w-[850px] py-12 md:py-20">
+            /* HOME PAGE: Slightly wider for the feed, but centered. Reduced top padding to close gap. */
+            <div className="w-full max-w-[850px] pt-4 md:pt-6 pb-12 md:pb-20">
               <ArticleList 
                 articles={articles} 
                 onSelectArticle={handleSelectArticle} 
