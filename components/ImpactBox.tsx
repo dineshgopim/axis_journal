@@ -6,23 +6,30 @@ interface ImpactBoxProps {
 
 const ImpactBox: React.FC<ImpactBoxProps> = ({ text }) => {
   return (
-    <div className="impact-box my-10 relative">
-      <div className="bg-gray-100 border-y-2 border-axis-maroon/20 p-8 md:p-10 relative overflow-hidden group">
+    <div className="impact-box my-12 md:my-16 relative group">
+      <div className="bg-white border-y-[6px] border-axis-navy p-10 md:p-14 relative overflow-hidden shadow-sm">
         
-        {/* Decorative quote mark background */}
-        <span className="absolute top-0 left-4 text-8xl text-axis-maroon opacity-5 font-serif leading-none select-none">
+        {/* Decorative Quote Mark */}
+        <span className="absolute -top-4 -left-2 text-[14rem] text-axis-navy opacity-[0.03] font-serif leading-none select-none italic">
           &ldquo;
         </span>
 
         <blockquote className="relative z-10 text-center">
-          <p className="font-serif font-bold text-xl md:text-2xl leading-relaxed text-axis-maroon tracking-wide">
+          <p className="font-serif font-black text-2xl md:text-3xl lg:text-4xl leading-[1.3] text-axis-navy tracking-tight italic">
             {text}
           </p>
         </blockquote>
 
-        {/* Bottom decorative element */}
-        <div className="w-16 h-1 bg-axis-maroon mx-auto mt-6 opacity-30 rounded-full"></div>
+        {/* Small Detail */}
+        <div className="flex justify-center items-center mt-8 space-x-4 opacity-30">
+          <div className="w-12 h-px bg-axis-navy"></div>
+          <div className="w-2 h-2 rounded-full bg-axis-maroon"></div>
+          <div className="w-12 h-px bg-axis-navy"></div>
+        </div>
       </div>
+      
+      {/* Subtle outer border decoration */}
+      <div className="absolute -inset-2 border border-axis-navy/5 -z-10 group-hover:scale-105 transition-transform duration-700"></div>
     </div>
   );
 };

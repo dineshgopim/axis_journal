@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Article } from '../types';
 import ImpactBox from './ImpactBox';
 import { calculateReadTime } from '../utils/readingTime';
@@ -8,76 +8,94 @@ interface ArticleViewProps {
 }
 
 const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
+  const [scrollProgress, setScrollProgress] = useState(0);
   
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [article.id]);
 
   const readTime = calculateReadTime(article.content);
 
   return (
-    <article className="animate-in fade-in duration-700">
+    <article className="animate-in fade-in duration-1000">
+      {/* Reading Progress Bar */}
+      <div 
+        className="fixed top-[64px] md:top-[128px] left-0 h-1 bg-axis-maroon z-50 transition-all duration-150 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
       {/* Article Header */}
-      <header className="mb-10 text-center max-w-2xl mx-auto">
-        <div className="flex justify-center items-center space-x-2 text-xs font-bold uppercase tracking-widest text-axis-maroon mb-4">
-          <span>{article.category}</span>
-          <span className="text-gray-300">•</span>
-          <span>{readTime}</span>
+      <header className="mb-10 md:mb-16 text-center max-w-3xl mx-auto px-4 md:px-0">
+        <div className="inline-flex items-center space-x-3 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-axis-maroon mb-6">
+          <span className="bg-axis-maroon text-white px-2 py-0.5 rounded-sm">{article.category}</span>
+          <span className="text-gray-300">/</span>
+          <span className="text-gray-500">{readTime}</span>
         </div>
         
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-axis-charcoal mb-6">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-axis-charcoal mb-6 md:mb-8 tracking-tight">
           {article.title}
         </h1>
         
-        <p className="font-body text-xl md:text-2xl text-gray-600 leading-relaxed italic mb-8">
+        <p className="font-body text-lg md:text-2xl text-gray-600 leading-relaxed italic mb-8 md:mb-12 max-w-2xl mx-auto border-l-2 md:border-l-0 border-axis-navy/10 pl-4 md:pl-0">
           {article.subtitle}
         </p>
 
-        <div className="flex justify-center items-center space-x-2 text-sm font-serif border-t border-b border-gray-200 py-4">
-          <span className="text-gray-500">By</span>
-          <span className="font-bold text-axis-charcoal">{article.author.name}</span>
-          <span className="text-gray-300 mx-2">|</span>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3 text-xs md:text-sm font-serif border-y border-gray-200 py-6">
+          <div className="flex items-center space-x-2">
+            <span className="text-gray-400">By</span>
+            <span className="font-bold text-axis-charcoal underline decoration-axis-maroon/30 underline-offset-4">{article.author.name}</span>
+          </div>
+          <span className="hidden sm:inline text-gray-300">|</span>
           <span className="text-gray-500">{article.date}</span>
         </div>
       </header>
 
       {/* Cover Image */}
       {article.coverImage && (
-        <figure className="mb-12 -mx-4 md:-mx-0">
-          <img 
-            src={article.coverImage} 
-            alt={article.title} 
-            className="w-full h-[400px] md:h-[500px] object-cover grayscale-[20%]"
-          />
-          <figcaption className="text-center text-xs text-gray-400 mt-2 font-sans uppercase tracking-widest">
-            Illustration via Unsplash
+        <figure className="mb-12 md:mb-20 -mx-4 md:-mx-8 lg:-mx-16 relative">
+          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden">
+            <img 
+              src={article.coverImage} 
+              alt={article.title} 
+              className="w-full h-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-1000"
+            />
+          </div>
+          <figcaption className="text-right px-4 md:px-8 text-[9px] text-gray-400 mt-2 font-sans uppercase tracking-[0.2em]">
+            Archival Footage / Axis Journal
           </figcaption>
         </figure>
       )}
 
       {/* Article Content */}
-      <div className="font-body text-lg md:text-[1.15rem] leading-[1.8] text-axis-charcoal space-y-6">
+      <div className="font-body text-lg md:text-xl leading-[1.85] text-axis-charcoal space-y-8 md:space-y-10 max-w-prose mx-auto px-1 md:px-0">
         {article.content.map((block, index) => {
           switch (block.type) {
             case 'paragraph':
-              // Check if it's the first paragraph to apply drop-cap
-              if (index === 0 && !block.content.startsWith('Content Note:')) {
+              if (index === 0 || (index === 1 && article.content[0].content.startsWith('Content Note:'))) {
+                 const isContentNote = block.content.startsWith('Content Note:');
+                 if (isContentNote) {
+                   return <p key={index} className="italic text-gray-500 text-sm md:text-base border-l-2 border-axis-maroon bg-white p-6 shadow-sm mb-12">{block.content}</p>;
+                 }
                  return (
-                  <p key={index} className="first-letter:float-left first-letter:text-7xl first-letter:font-bold first-letter:font-serif first-letter:text-axis-charcoal first-letter:mr-3 first-letter:mt-[-10px] first-letter:leading-[0.8]">
+                  <p key={index} className="first-letter:float-left first-letter:text-8xl first-letter:font-bold first-letter:font-serif first-letter:text-axis-charcoal first-letter:mr-4 first-letter:mt-1 first-letter:leading-[0.7] drop-cap">
                     {block.content}
                   </p>
                  );
-              }
-              // Special styling for Content Note
-              if (block.content.startsWith('Content Note:')) {
-                return <p key={index} className="italic text-gray-500 text-base border-l-4 border-gray-300 pl-4">{block.content}</p>;
               }
               return <p key={index}>{block.content}</p>;
             
             case 'subheading':
               return (
-                <h2 key={index} className="font-serif text-2xl md:text-3xl font-bold text-axis-navy mt-10 mb-4 border-b-2 border-axis-navy/10 pb-2 inline-block">
+                <h2 key={index} className="font-serif text-2xl md:text-4xl font-black text-axis-navy pt-12 pb-4 tracking-tight border-b-4 border-axis-navy/5">
                   {block.content}
                 </h2>
               );
@@ -87,14 +105,17 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
             
             case 'list':
               return (
-                 <ul key={index} className="space-y-2 mt-2 mb-8 font-body text-base text-gray-600">
-                    {block.items?.map((item, i) => (
-                      <li key={i} className="border-b border-gray-100 py-2 hover:text-axis-maroon transition-colors cursor-pointer flex items-start">
-                        <span className="mr-2 opacity-50">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                 </ul>
+                 <div key={index} className="bg-white/50 border border-gray-100 p-8 my-12">
+                   <h4 className="font-serif font-bold text-xs uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-100 pb-2">Further Reading & Sources</h4>
+                   <ul className="space-y-3 font-body text-base text-gray-600">
+                      {block.items?.map((item, i) => (
+                        <li key={i} className="group flex items-start">
+                          <span className="mr-3 text-axis-maroon opacity-50 font-bold">0{i+1}.</span>
+                          <span className="group-hover:text-axis-navy cursor-pointer transition-colors border-b border-transparent group-hover:border-axis-navy/20">{item}</span>
+                        </li>
+                      ))}
+                   </ul>
+                 </div>
               );
 
             default:
@@ -103,15 +124,21 @@ const ArticleView: React.FC<ArticleViewProps> = ({ article }) => {
         })}
       </div>
 
-      {/* Footer / Share */}
-      <div className="mt-16 pt-8 border-t border-gray-300">
-        <div className="flex justify-center space-x-6">
-           <button className="w-10 h-10 rounded-full bg-gray-200 hover:bg-axis-navy hover:text-white flex items-center justify-center transition-colors">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-           </button>
-           <button className="w-10 h-10 rounded-full bg-gray-200 hover:bg-axis-navy hover:text-white flex items-center justify-center transition-colors">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-           </button>
+      {/* Author/Footer Section */}
+      <div className="mt-20 pt-12 border-t border-gray-200">
+        <div className="max-w-prose mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex space-x-4">
+               {['Twitter', 'Facebook', 'LinkedIn', 'Email'].map(social => (
+                 <button key={social} className="text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-axis-maroon transition-colors">
+                   {social}
+                 </button>
+               ))}
+            </div>
+            <button className="text-[10px] font-bold uppercase tracking-widest text-axis-navy border border-axis-navy/20 px-3 py-1 hover:bg-axis-navy hover:text-white transition-all">
+              Copy Link
+            </button>
+          </div>
         </div>
       </div>
     </article>
