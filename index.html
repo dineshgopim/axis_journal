@@ -36,6 +36,7 @@
         -moz-osx-font-smoothing: grayscale;
         font-family: "Lora", Georgia, serif;
       }
+      
       /* Professional scrollbar */
       ::-webkit-scrollbar {
         width: 6px;
@@ -50,17 +51,27 @@
         background: #b1af9e;
       }
       
-      /* Refined Drop Cap */
+      /* Elegant Drop Cap */
       .drop-cap::first-letter {
         float: left;
         font-family: "Playfair Display", serif;
-        font-size: 5.5rem;
-        line-height: 4rem;
-        padding-top: 0.5rem;
-        padding-right: 0.75rem;
-        padding-left: 0.1rem;
+        font-size: 5rem;
+        line-height: 1;
+        margin-top: 0.15em;
+        margin-right: 0.12em;
         font-weight: 900;
         color: #1a1a1a;
+        text-transform: uppercase;
+      }
+
+      /* Typography refinements for readability */
+      p {
+        text-rendering: optimizeLegibility;
+      }
+
+      strong {
+        font-weight: 700;
+        color: #111;
       }
     </style>
   <script type="importmap">
