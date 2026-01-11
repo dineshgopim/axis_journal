@@ -17,8 +17,8 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
 
   return (
     <header className="border-b border-gray-200 bg-axis-cream sticky top-0 z-50">
-      {/* Top Bar - Date and Utility (Desktop Only) */}
-      <div className="hidden md:block container mx-auto px-4 py-2 border-b border-gray-100">
+      {/* Top Bar - Decreased padding from py-2 to py-1.5 (~20% reduction) */}
+      <div className="hidden md:block container mx-auto px-4 py-1.5 border-b border-gray-100">
         <div className="flex justify-between items-center text-[9px] font-serif uppercase tracking-[0.2em] text-gray-500">
           <span>{date}</span>
           <div className="space-x-6">
@@ -29,8 +29,8 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
         </div>
       </div>
 
-      {/* Main Logo and Mobile Menu Toggle */}
-      <div className="container mx-auto px-4 py-4 md:py-8 flex items-center justify-between md:justify-center relative">
+      {/* Main Logo Container - Decreased padding from md:py-8 to md:py-6 and py-4 to py-3 (~20-25% reduction) */}
+      <div className="container mx-auto px-4 py-3 md:py-6 flex items-center justify-between md:justify-center relative">
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 -ml-2 text-axis-charcoal focus:outline-none"
@@ -61,9 +61,9 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick }) => {
         <div className="md:hidden w-10"></div> {/* Spacer for mobile balance */}
       </div>
 
-      {/* Desktop Navigation - Increased font size by 10% (10px to 11px) */}
+      {/* Desktop Navigation - Decreased vertical padding from py-4 to py-3 (~25% reduction) */}
       <nav className="hidden md:block container mx-auto px-4">
-        <ul className="flex justify-center gap-8 lg:gap-12 text-[11px] font-bold uppercase tracking-[0.15em] text-axis-navy py-4">
+        <ul className="flex justify-center gap-8 lg:gap-12 text-[11px] font-bold uppercase tracking-[0.15em] text-axis-navy py-3">
           {categories.map((item) => (
             <li key={item}>
               <button className="hover:text-axis-maroon transition-colors relative group">
